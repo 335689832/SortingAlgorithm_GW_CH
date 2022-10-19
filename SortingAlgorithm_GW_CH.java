@@ -1,81 +1,84 @@
 import java.util.Scanner;
 import java.util.Random;
 
+
 class SortingAlgorithm_GW_CH{
-    public static long[] randomArray(int num){
+    public static Long[] randomArray(int num){
         Random rand = new Random();
 
-        long[] arr = new long[num];
+        Long[] arr = new Long[num];
         for(int i = 0; i < arr.length; i++){
             arr[i] = rand.nextLong(Integer.MAX_VALUE);
+            // Error on this?
+            // Figure it out at some point(not urgent)
         }
 
         return arr;
     }
 
-    public static void iSort(long array[]){
-        int n = array.length;  
+    public static void iSort(Long array[]){
+        int n = array.length;
 
-        for (int j = 1; j < n; j++) {  
-            long key = array[j];  
-            int i = j-1;  
-            while ( (i > -1) && ( array [i] > key ) ) {  
-                array [i+1] = array [i];  
-                i--;  
-            }  
-            array[i+1] = key;  
-        }  
+        for (int j = 1; j < n; j++) {
+            Long key = array[j];
+            int i = j-1;
+            while ( (i > -1) && ( array [i] > key ) ) {
+                array [i+1] = array [i];
+                i--;
+            }
+            array[i+1] = key;
+        }
     }
 
-    //selects last element as pivot, pi using which array is partitioned. 
-    public static int partition(long arr[], int low, int high) { 
-        long pi = arr[high];  
-        int i = (low-1); // smaller element index   
-        for (int j=low; j<high; j++) { 
-            // check if current element is less than or equal to pi 
-            if (arr[j] <= pi) { 
-                i++; 
-                // swap intArray[i] and intArray[j] 
-                long temp = arr[i]; 
-                arr[i] = arr[j]; 
-                arr[j] = temp; 
-            } 
-        } 
+    //selects last element as pivot, pi using which array is partitioned.
+    public static int partition(Long arr[], int low, int high) {
+        Long pi = arr[high];
+        int i = (low-1); // smaller element index
+        for (int j=low; j<high; j++) {
+            // check if current element is less than or equal to pi
+            if (arr[j] <= pi) {
+                i++;
+                // swap intArray[i] and intArray[j]
+                Long temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
 
-        // swap intArray[i+1] and intArray[high] (or pi) 
-        long temp = arr[i+1]; 
-        arr[i+1] = arr[high]; 
-        arr[high] = temp; 
+        // swap intArray[i+1] and intArray[high] (or pi)
+        Long temp = arr[i+1];
+        arr[i+1] = arr[high];
+        arr[high] = temp;
 
         return i+1;
     }
 
     //routine to sort the array partitions recursively
-    public static void quickSort(long arr[], int low, int high) { 
-        if (low < high) { 
+    public static void quickSort(Long arr[], int low, int high) {
+        if (low < high) {
             //partition the array around pi=>partitioning index and return pi
-            int pi = partition(arr, low, high); 
+            int pi = partition(arr, low, high);
 
-            // sort each partition recursively 
-            quickSort(arr, low, pi-1); 
-            quickSort(arr, pi+1, high); 
-        } 
-    } 
+            // sort each partition recursively
+            quickSort(arr, low, pi-1);
+            quickSort(arr, pi+1, high);
+        }
+    }
 
     public static void sInsertSort(){
         Scanner sc3 = new Scanner(System.in);
-        
+
         System.out.print("Enter array size: ");
         int num = sc3.nextInt();
 
-        long[] arr = randomArray(num);
-        long start = System.currentTimeMillis();
+        Long[] arr = randomArray(num);
+        Long start = System.currentTimeMillis();
         iSort(arr);
 
         System.out.println("The smallest value is " + arr[0]);
         System.out.println("The largest value is " + arr[num-1]);
 
-        long finish = System.currentTimeMillis();
+        Long finish = System.currentTimeMillis();
         System.out.println("start:" + start + " finish:" + finish);
         System.out.println("Sorting took " + (finish-start) + " milliseconds.");
 
@@ -84,18 +87,18 @@ class SortingAlgorithm_GW_CH{
 
     public static void sQuickSort(){
         Scanner sc2 = new Scanner(System.in);
-        
+
         System.out.print("Enter array size: ");
         int num = sc2.nextInt();
 
-        long[] arr = randomArray(num);
-        long start = System.currentTimeMillis();
+        Long[] arr = randomArray(num);
+        Long start = System.currentTimeMillis();
         quickSort(arr, 0, num-1);
 
         System.out.println("The smallest value is " + arr[0]);
         System.out.println("The largest value is " + arr[num-1]);
 
-        long finish = System.currentTimeMillis();
+        Long finish = System.currentTimeMillis();
         System.out.println("start:" + start + " finish:" + finish);
         System.out.println("Sorting took " + (finish-start) + " milliseconds.");
 
@@ -103,20 +106,28 @@ class SortingAlgorithm_GW_CH{
     }
 
     public static void main(String[] args){
+        MergeSort sMergeSort = new MergeSort();
+        SelectionSort sSelectionSort = new SelectionSort();
         Scanner sc1 = new Scanner(System.in);
 
         System.out.println("Добро пожаловать в сортировочную машину");
         System.out.print("Enter the sorting algorithm would you like to use (selection, insertion, merge, quick): ");
         String s = sc1.nextLine();
-        
-        if(s.toLowerCase().equals("selection")){
 
+        if(s.toLowerCase().equals("selection")){
+            System.out.println("Enter array size: ");
+            int selecLen = sc1.nextInt();
+            sSelectionSort.main(args, randomArray(selecLen));
+            // Minor error to understand
         }
         else if(s.toLowerCase().equals("insertion")){
             sInsertSort();
         }
         else if(s.toLowerCase().equals("merge")){
-
+            System.out.println("Enter array size: ");
+            int mergeLen = sc1.nextInt();
+            sMergeSort.main(args, randomArray(mergeLen));
+            // Minor error to understand
         }
         else if(s.toLowerCase().equals("quick")){
             sQuickSort();
@@ -124,7 +135,7 @@ class SortingAlgorithm_GW_CH{
         else{
             System.out.println("Please enter a valid selection.");
         }
-        
+
         sc1.close();
     }
 }

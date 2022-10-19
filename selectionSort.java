@@ -1,6 +1,6 @@
 class SelectionSort
 {
-    void sort(int arr[])
+    void sort(Long arr[])
     {
         int n = arr.length;
 
@@ -15,14 +15,14 @@ class SelectionSort
 
             // Swap the found minimum element with the first
             // element
-            int temp = arr[min_idx];
+            Long temp = arr[min_idx];
             arr[min_idx] = arr[i];
             arr[i] = temp;
         }
     }
 
     // Prints the array
-    void printArray(int arr[])
+    void printArray(Long arr[])
     {
         int n = arr.length;
         for (int i=0; i<n; ++i)
@@ -31,10 +31,9 @@ class SelectionSort
     }
 
     // Driver code to test above
-    public static void main(String args[])
+    public static void main(String args[], Long arr[])
     {
         SelectionSort ob = new SelectionSort();
-        int arr[] = {64,25,12,22,11};
         ob.sort(arr);
         System.out.println("Sorted array");
         ob.printArray(arr);
