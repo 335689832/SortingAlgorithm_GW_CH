@@ -31,5 +31,12 @@ class QuickSort {
 
         return i+1;
     }
+
+    public static void masterQuick(int[] arr){
+        quickSort(arr, 0, arr.length-1);
+        System.out.println("List is " + arr.length + " long.");
+        System.out.println("The smallest value is " + arr[0]);
+        System.out.println("The largest value is " + arr[arr.length-1]);
+    }
 }
 

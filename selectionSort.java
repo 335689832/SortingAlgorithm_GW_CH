@@ -21,23 +21,13 @@ class SelectionSort
         }
     }
 
-    // Prints the array
-    void printArray(int arr[])
-    {
-        int n = arr.length;
-        for (int i=0; i<n; ++i)
-            System.out.print(arr[i]+" ");
-        System.out.println();
-    }
-
     // Driver code to test above
-    public static void main(String args[], int arr[])
+    public static void MasterSelect(int arr[])
     {
         SelectionSort ob = new SelectionSort();
         ob.sort(arr);
+        System.out.println("List is " + arr.length + " long.");
         System.out.println("The smallest value is " + arr[0]);
         System.out.println("The largest value is " + arr[arr.length-1]);
-        // System.out.println("Sorted array");
-        // ob.printArray(arr);
     }
 }

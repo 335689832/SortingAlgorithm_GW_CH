@@ -9,125 +9,117 @@ class SortingAlgorithm_GW_CH{
         int[] arr = new int[num];
         for(int i = 0; i < arr.length; i++){
             arr[i] = rand.nextInt(Integer.MAX_VALUE);
-            // Error on this?
-            // Figure it out at some point(not urgent)
         }
-
         return arr;
     }
 
-    public static void iSort(int array[]){
-        int n = array.length;
-
-        for (int j = 1; j < n; j++) {
-            int key = array[j];
-            int i = j-1;
-            while ( (i > -1) && ( array [i] > key ) ) {
-                array [i+1] = array [i];
-                i--;
-            }
-            array[i+1] = key;
-        }
-    }
-
-
-
-    public static void sInsertSort(){
-        Scanner sc3 = new Scanner(System.in);
-
-        System.out.print("Enter array size: ");
-        int num = sc3.nextInt();
-
-        int[] arr = randomArray(num);
-        long start = System.currentTimeMillis();
-        iSort(arr);
-
-        System.out.println("The smallest value is " + arr[0]);
-        System.out.println("The largest value is " + arr[num-1]);
-
-        long finish = System.currentTimeMillis();
-        System.out.println("start:" + start + " finish:" + finish);
-        System.out.println("Sorting took " + (finish-start) + " milliseconds.");
-
-        sc3.close();
-    }
-
-    // public static void sQuickSort(){
-
-    //     Scanner sc2 = new Scanner(System.in);
-
-    //     System.out.print("Enter array size: ");
-    //     int num = sc2.nextInt();
-
-    //     int[] arr = randomArray(num);
-    //     long start = System.currentTimeMillis();
-    //     quickSort(arr, 0, num-1);
-
-    //     System.out.println("The smallest value is " + arr[0]);
-    //     System.out.println("The largest value is " + arr[num-1]);
-
-    //     long finish = System.currentTimeMillis();
-    //     System.out.println("start:" + start + " finish:" + finish);
-    //     System.out.println("Sorting took " + (finish-start) + " milliseconds.");
-
-    //     sc2.close();
-    // }
-
-    public static void main(String[] args){
+    public static void mergeSort(int[] arr){
         MergeSort sMergeSort = new MergeSort();
+
+        long begin = System.currentTimeMillis();
+        sMergeSort.MasterMerge(arr);
+        long finish = System.currentTimeMillis();
+        System.out.println("Sorting took " + (finish - begin) + " milliseconds.");
+        System.out.println();
+    }
+
+    public static void selectSort(int[] arr){
         SelectionSort sSelectionSort = new SelectionSort();
-        QuickSort sQuickSort = new QuickSort();
+
+        long begin = System.currentTimeMillis();
+        sSelectionSort.MasterSelect(arr);
+        long finish = System.currentTimeMillis();
+        System.out.println("Sorting took " + (finish - begin) + " milliseconds.");
+        System.out.println();
+    }
+
+    public static void insertSort(int[] arr){
         InsertionSort sInsertionSort = new InsertionSort();
-        Scanner sc1 = new Scanner(System.in);
+
+        long begin = System.currentTimeMillis();
+        sInsertionSort.masterInsert(arr);
+        long finish = System.currentTimeMillis();
+        System.out.println("Sorting took " + (finish - begin) + " milliseconds.");
+        System.out.println();
+    }
+
+    public static void quickSort(int[] arr){
+        QuickSort sQuickSort = new QuickSort();
+
+        long begin = System.currentTimeMillis();
+        sQuickSort.masterQuick(arr);
+        long finish = System.currentTimeMillis();
+        System.out.println("Sorting took " + (finish - begin) + " milliseconds.");
+        System.out.println();
+    }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
 
         System.out.println("Добро пожаловать в сортировочную машину");
         System.out.print("Enter the sorting algorithm would you like to use (selection, insertion, merge, quick): ");
-        String s = sc1.nextLine();
+        String s = sc.nextLine();
+        System.out.print("Enter array size: ");
+        int len = sc.nextInt();
 
         if(s.toLowerCase().equals("selection")){
-            System.out.print("Enter array size: ");
-            int selecLen = sc1.nextInt();
-            long begin = System.currentTimeMillis();
-            sSelectionSort.main(args, randomArray(selecLen));
-            // Minor error to understand
-            long finish = System.currentTimeMillis();
-            System.out.println("Sorting took " + (finish - begin) + " milliseconds.");
+            if(len == -1){
+                int c = 10000;
+                for(int i = 0; i <= 4; i++){
+                    int[] arr = randomArray(c);
+                    selectSort(arr);   
+                }
+            }
+            else{
+                int[] arr = randomArray(len);
+                selectSort(arr);
+            }
         }
         else if(s.toLowerCase().equals("insertion")){
-            // Needs class import
-
-            // sInsertSort();
-            System.out.print("Enter array size: ");
-            int selecLen = sc1.nextInt();
-            long begin = System.currentTimeMillis();
-            sInsertionSort.iSort(randomArray(selecLen));
-            // Minor error to understand
-            long finish = System.currentTimeMillis();
-            System.out.println("Sorting took " + (finish - begin) + " milliseconds.");
+            if(len == -1){
+                int c = 10000;
+                for(int i = 0; i <= 4; i++){
+                    int[] arr = randomArray(c);
+                    insertSort(arr);
+                    c = c*2;   
+                }
+            }
+            else{
+                int[] arr = randomArray(len);
+                insertSort(arr);
+            }
         }
         else if(s.toLowerCase().equals("merge")){
-            System.out.print("Enter array size: ");
-            int mergeLen = sc1.nextInt();
-            long begin = System.currentTimeMillis();
-            sMergeSort.main(args, randomArray(mergeLen));
-            // Minor error to understand
-            long finish = System.currentTimeMillis();
-            System.out.println("Sorting took " + (finish - begin) + " milliseconds.");
+            if(len == -1){
+                int c = 10000;
+                for(int i = 0; i <= 4; i++){
+                    int[] arr = randomArray(c);
+                    mergeSort(arr);
+                    c = c*2;   
+                }
+            }
+            else{
+                int[] arr = randomArray(len);
+                mergeSort(arr);
+            }
         }
         else if(s.toLowerCase().equals("quick")){
-            // sQuickSort();
-            System.out.print("Enter array size: ");
-            int selecLen = sc1.nextInt();
-            long begin = System.currentTimeMillis();
-            sQuickSort.quickSort(randomArray(selecLen), 0, selecLen - 1);
-            // Minor error to understand
-            long finish = System.currentTimeMillis();
-            System.out.println("Sorting took " + (finish - begin) + " milliseconds.");
+            if(len == -1){
+                int c = 10000;
+                for(int i = 0; i <= 4; i++){
+                    int[] arr = randomArray(c);
+                    quickSort(arr);
+                    c = c*2;   
+                }
+            }
+            else{
+                int[] arr = randomArray(len);
+                quickSort(arr);
+            }        
         }
         else{
             System.out.println("Please enter a valid selection.");
         }
 
-        sc1.close();
+        sc.close();
     }
 }
