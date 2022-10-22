@@ -64,10 +64,22 @@ class SortingAlgorithm_GW_CH{
         if(s.toLowerCase().equals("selection")){
             if(len == -1){
                 int c = 10000;
-                for(int i = 0; i <= 4; i++){
-                    int[] arr = randomArray(c);
-                    selectSort(arr);   
-                }
+                // for(int i = 0; i <= 4; i++){
+                int[] arr1 = randomArray(c);
+                selectSort(arr1);
+                // }
+                int d = 20000;
+                int[] arr2 = randomArray(d);
+                selectSort(arr2);
+                int e = 40000;
+                int[] arr3 = randomArray(e);
+                selectSort(arr3);
+                int f = 80000;
+                int[] arr4 = randomArray(f);
+                selectSort(arr4);
+                int g = 160000;
+                int[] arr5 = randomArray(g);
+                selectSort(arr5);
             }
             else{
                 int[] arr = randomArray(len);
@@ -77,11 +89,22 @@ class SortingAlgorithm_GW_CH{
         else if(s.toLowerCase().equals("insertion")){
             if(len == -1){
                 int c = 10000;
-                for(int i = 0; i <= 4; i++){
-                    int[] arr = randomArray(c);
-                    insertSort(arr);
-                    c = c*2;   
-                }
+                // for(int i = 0; i <= 4; i++){
+                int[] arr1 = randomArray(c);
+                insertSort(arr1);
+                // }
+                int d = 20000;
+                int[] arr2 = randomArray(d);
+                insertSort(arr2);
+                int e = 40000;
+                int[] arr3 = randomArray(e);
+                insertSort(arr3);
+                int f = 80000;
+                int[] arr4 = randomArray(f);
+                insertSort(arr4);
+                int g = 160000;
+                int[] arr5 = randomArray(g);
+                insertSort(arr5);
             }
             else{
                 int[] arr = randomArray(len);
@@ -91,11 +114,22 @@ class SortingAlgorithm_GW_CH{
         else if(s.toLowerCase().equals("merge")){
             if(len == -1){
                 int c = 10000;
-                for(int i = 0; i <= 4; i++){
-                    int[] arr = randomArray(c);
-                    mergeSort(arr);
-                    c = c*2;   
-                }
+                // for(int i = 0; i <= 4; i++){
+                int[] arr1 = randomArray(c);
+                mergeSort(arr1);
+                // }
+                int d = 20000;
+                int[] arr2 = randomArray(d);
+                mergeSort(arr2);
+                int e = 40000;
+                int[] arr3 = randomArray(e);
+                mergeSort(arr3);
+                int f = 80000;
+                int[] arr4 = randomArray(f);
+                mergeSort(arr4);
+                int g = 160000;
+                int[] arr5 = randomArray(g);
+                mergeSort(arr5);
             }
             else{
                 int[] arr = randomArray(len);
@@ -105,16 +139,27 @@ class SortingAlgorithm_GW_CH{
         else if(s.toLowerCase().equals("quick")){
             if(len == -1){
                 int c = 10000;
-                for(int i = 0; i <= 4; i++){
-                    int[] arr = randomArray(c);
-                    quickSort(arr);
-                    c = c*2;   
-                }
+                // for(int i = 0; i <= 4; i++){
+                int[] arr1 = randomArray(c);
+                quickSort(arr1);
+                // }
+                int d = 20000;
+                int[] arr2 = randomArray(d);
+                quickSort(arr2);
+                int e = 40000;
+                int[] arr3 = randomArray(e);
+                quickSort(arr3);
+                int f = 80000;
+                int[] arr4 = randomArray(f);
+                quickSort(arr4);
+                int g = 160000;
+                int[] arr5 = randomArray(g);
+                quickSort(arr5);
             }
             else{
                 int[] arr = randomArray(len);
                 quickSort(arr);
-            }        
+            }
         }
         else{
             System.out.println("Please enter a valid selection.");
