@@ -1,5 +1,7 @@
 import java.util.Scanner;
 import java.util.Random;
+import java.io.*;
+import java.io.IOException;
 
 
 class SortingAlgorithm_GW_CH{
@@ -13,44 +15,56 @@ class SortingAlgorithm_GW_CH{
         return arr;
     }
 
-    public static void mergeSort(int[] arr){
+    public static int mergeSort(int[] arr){
         MergeSort sMergeSort = new MergeSort();
 
         long begin = System.currentTimeMillis();
         sMergeSort.MasterMerge(arr);
         long finish = System.currentTimeMillis();
-        System.out.println("Sorting took " + (finish - begin) + " milliseconds.");
+        Long time = finish - begin;
+        int doneTime = time.intValue();
+        System.out.println("Sorting took " + (time) + " milliseconds.");
         System.out.println();
+        return doneTime;
     }
 
-    public static void selectSort(int[] arr){
+    public static int selectSort(int[] arr){
         SelectionSort sSelectionSort = new SelectionSort();
 
         long begin = System.currentTimeMillis();
         sSelectionSort.MasterSelect(arr);
         long finish = System.currentTimeMillis();
-        System.out.println("Sorting took " + (finish - begin) + " milliseconds.");
+        Long time = finish - begin;
+        int doneTime = time.intValue();
+        System.out.println("Sorting took " + (time) + " milliseconds.");
         System.out.println();
+        return doneTime;
     }
 
-    public static void insertSort(int[] arr){
+    public static int insertSort(int[] arr){
         InsertionSort sInsertionSort = new InsertionSort();
 
         long begin = System.currentTimeMillis();
         sInsertionSort.masterInsert(arr);
         long finish = System.currentTimeMillis();
-        System.out.println("Sorting took " + (finish - begin) + " milliseconds.");
+        Long time = finish - begin;
+        int doneTime = time.intValue();
+        System.out.println("Sorting took " + (time) + " milliseconds.");
         System.out.println();
+        return doneTime;
     }
 
-    public static void quickSort(int[] arr){
+    public static int quickSort(int[] arr){
         QuickSort sQuickSort = new QuickSort();
 
         long begin = System.currentTimeMillis();
         sQuickSort.masterQuick(arr);
         long finish = System.currentTimeMillis();
-        System.out.println("Sorting took " + (finish - begin) + " milliseconds.");
+        Long time = finish - begin;
+        int doneTime = time.intValue();
+        System.out.println("Sorting took " + (time) + " milliseconds.");
         System.out.println();
+        return doneTime;
     }
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
@@ -59,27 +73,38 @@ class SortingAlgorithm_GW_CH{
         System.out.print("Enter the sorting algorithm would you like to use (selection, insertion, merge, quick): ");
         String s = sc.nextLine();
         System.out.print("Enter array size: ");
-        int len = sc.nextInt();
+        String lenString = sc.nextLine();
+        int len = Integer.valueOf(lenString);
+        int[][] lastThing = new int[5][2];
 
         if(s.toLowerCase().equals("selection")){
             if(len == -1){
                 int c = 10000;
                 // for(int i = 0; i <= 4; i++){
                 int[] arr1 = randomArray(c);
-                selectSort(arr1);
+                lastThing[0][0] = 10000;
+                lastThing[0][1] = selectSort(arr1);
                 // }
                 int d = 20000;
                 int[] arr2 = randomArray(d);
-                selectSort(arr2);
+                lastThing[1][0] = 20000;
+                lastThing[1][1] = selectSort(arr2);
                 int e = 40000;
                 int[] arr3 = randomArray(e);
-                selectSort(arr3);
+                lastThing[2][0] = 40000;
+                lastThing[2][1] = selectSort(arr3);
                 int f = 80000;
                 int[] arr4 = randomArray(f);
-                selectSort(arr4);
+                lastThing[3][0] = 80000;
+                lastThing[3][1] = selectSort(arr4);
                 int g = 160000;
                 int[] arr5 = randomArray(g);
-                selectSort(arr5);
+                lastThing[4][0] = 160000;
+                lastThing[4][1] = selectSort(arr5);
+
+                System.out.println("Enter the name of your file: ");
+                String name = sc.nextLine();
+                putInCsv(name, lastThing);
             }
             else{
                 int[] arr = randomArray(len);
@@ -91,20 +116,29 @@ class SortingAlgorithm_GW_CH{
                 int c = 10000;
                 // for(int i = 0; i <= 4; i++){
                 int[] arr1 = randomArray(c);
-                insertSort(arr1);
+                lastThing[0][0] = 10000;
+                lastThing[0][1] = insertSort(arr1);
                 // }
                 int d = 20000;
                 int[] arr2 = randomArray(d);
-                insertSort(arr2);
+                lastThing[1][0] = 20000;
+                lastThing[1][1] = insertSort(arr2);
                 int e = 40000;
                 int[] arr3 = randomArray(e);
-                insertSort(arr3);
+                lastThing[2][0] = 40000;
+                lastThing[2][1] = insertSort(arr3);
                 int f = 80000;
                 int[] arr4 = randomArray(f);
-                insertSort(arr4);
+                lastThing[3][0] = 80000;
+                lastThing[3][1] = insertSort(arr4);
                 int g = 160000;
                 int[] arr5 = randomArray(g);
-                insertSort(arr5);
+                lastThing[4][0] = 160000;
+                lastThing[4][1] = insertSort(arr5);
+
+                System.out.println("Enter the name of your file: ");
+                String name = sc.nextLine();
+                putInCsv(name, lastThing);
             }
             else{
                 int[] arr = randomArray(len);
@@ -116,20 +150,30 @@ class SortingAlgorithm_GW_CH{
                 int c = 10000;
                 // for(int i = 0; i <= 4; i++){
                 int[] arr1 = randomArray(c);
-                mergeSort(arr1);
+                lastThing[0][0] = 10000;
+                lastThing[0][1] = mergeSort(arr1);
+
                 // }
                 int d = 20000;
                 int[] arr2 = randomArray(d);
-                mergeSort(arr2);
+                lastThing[1][0] = 20000;
+                lastThing[1][1] = mergeSort(arr2);
                 int e = 40000;
                 int[] arr3 = randomArray(e);
-                mergeSort(arr3);
+                lastThing[2][0] = 40000;
+                lastThing[2][1] = mergeSort(arr3);
                 int f = 80000;
                 int[] arr4 = randomArray(f);
-                mergeSort(arr4);
+                lastThing[3][0] = 80000;
+                lastThing[3][1] = mergeSort(arr4);
                 int g = 160000;
                 int[] arr5 = randomArray(g);
-                mergeSort(arr5);
+                lastThing[4][0] = 160000;
+                lastThing[4][1] = mergeSort(arr5);
+
+                System.out.println("Enter the name of your file: ");
+                String name = sc.nextLine();
+                putInCsv(name, lastThing);
             }
             else{
                 int[] arr = randomArray(len);
@@ -141,30 +185,70 @@ class SortingAlgorithm_GW_CH{
                 int c = 10000;
                 // for(int i = 0; i <= 4; i++){
                 int[] arr1 = randomArray(c);
-                quickSort(arr1);
+                lastThing[0][0] = 10000;
+                lastThing[0][1] = quickSort(arr1);
                 // }
                 int d = 20000;
                 int[] arr2 = randomArray(d);
-                quickSort(arr2);
+                lastThing[1][0] = 20000;
+                lastThing[1][1] = quickSort(arr2);
                 int e = 40000;
                 int[] arr3 = randomArray(e);
-                quickSort(arr3);
+                lastThing[2][0] = 40000;
+                lastThing[2][1] = quickSort(arr3);
                 int f = 80000;
                 int[] arr4 = randomArray(f);
-                quickSort(arr4);
+                lastThing[3][0] = 80000;
+                lastThing[3][1] = quickSort(arr4);
                 int g = 160000;
                 int[] arr5 = randomArray(g);
-                quickSort(arr5);
+                lastThing[4][0] = 160000;
+                lastThing[4][1] = quickSort(arr5);
+
+                System.out.println("Enter the name of your file: ");
+                String name = sc.nextLine();
+                putInCsv(name, lastThing);
             }
             else{
                 int[] arr = randomArray(len);
                 quickSort(arr);
             }
         }
+
         else{
             System.out.println("Please enter a valid selection.");
         }
 
         sc.close();
+    }
+    public static void putInCsv(String name, int[][] data){
+        try {
+            // Initialize new file
+            File myObj = new File(name);
+            if (myObj.createNewFile()) {
+                System.out.println("File created: " + myObj.getName());
+                FileWriter writer = new FileWriter(name);
+                // Loop through both axis of the array and write each section into the file
+                // Separate j values with commas and i values with new lines
+                for (int i = 0; i < data.length; i++){
+                    for (int j = 0; j < data[i].length; j++){
+                        writer.write(String.valueOf(data[i][j]));
+                        if (j < data[i].length - 1){
+                            writer.write(",");
+                        }
+                    }
+                    writer.write("\n");
+
+                }
+                writer.close();
+            // If file already exists, give an appropriate warning
+            } else {
+                System.out.println("File already exists.");
+            }
+          } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+          }
+
     }
 }
