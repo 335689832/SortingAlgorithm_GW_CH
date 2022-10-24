@@ -7,7 +7,6 @@ import java.io.IOException;
 class SortingAlgorithm_GW_CH{
     public static int[] randomArray(int num){
         Random rand = new Random();
-
         int[] arr = new int[num];
         for(int i = 0; i < arr.length; i++){
             arr[i] = rand.nextInt(Integer.MAX_VALUE);
@@ -69,7 +68,7 @@ class SortingAlgorithm_GW_CH{
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Добро пожаловать в сортировочную машину");
+        System.out.println("Welcome to the Sorting Machine");
         System.out.print("Enter the sorting algorithm would you like to use (selection, insertion, merge, quick): ");
         String s = sc.nextLine();
         System.out.print("Enter array size: ");
@@ -79,13 +78,11 @@ class SortingAlgorithm_GW_CH{
 
         if(s.toLowerCase().equals("selection")){
             if(len == -1){
-                if(len == -1){
-                    int c = 10000;
-                    for(int i = 0; i <= 4; i++){
-                        lastThing[i][0] = c;
-                        lastThing[i][1] = quickSort(randomArray(c));
-                        c = c*2;
-                    }
+                int c = 10000;
+                for(int i = 0; i <= 4; i++){
+                    lastThing[i][0] = c;
+                    lastThing[i][1] = selectSort(randomArray(c));
+                    c = c*2;
                 }
 
                 System.out.println("Enter the name of your file: ");
@@ -99,13 +96,12 @@ class SortingAlgorithm_GW_CH{
         }
         else if(s.toLowerCase().equals("insertion")){
             if(len == -1){
-                if(len == -1){
-                    int c = 10000;
-                    for(int i = 0; i <= 4; i++){
-                        lastThing[i][0] = c;
-                        lastThing[i][1] = insertSort(randomArray(c));
-                        c = c*2;
-                    }
+                int c = 10000;
+                for(int i = 0; i <= 4; i++){
+                    int[] arr = randomArray(c);
+                    lastThing[i][0] = c;
+                    lastThing[i][1] = insertSort(arr);
+                    c = c*2;
                 }
 
                 System.out.println("Enter the name of your file: ");
@@ -119,13 +115,11 @@ class SortingAlgorithm_GW_CH{
         }
         else if(s.toLowerCase().equals("merge")){
             if(len == -1){
-                if(len == -1){
-                    int c = 10000;
-                    for(int i = 0; i <= 4; i++){
-                        lastThing[i][0] = c;
-                        lastThing[i][1] = mergeSort(randomArray(c));
-                        c = c*2;
-                    }
+                int c = 10000;
+                for(int i = 0; i <= 4; i++){
+                    lastThing[i][0] = c;
+                    lastThing[i][1] = mergeSort(randomArray(c));
+                    c = c*2;
                 }
 
                 System.out.println("Enter the name of your file: ");
