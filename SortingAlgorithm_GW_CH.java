@@ -87,25 +87,6 @@ class SortingAlgorithm_GW_CH{
                         c = c*2;
                     }
                 }
-                // int[] arr1 = randomArray(c);
-                // lastThing[0][0] = 10000;
-                // lastThing[0][1] = selectSort(arr1);
-                // int d = 20000;
-                // int[] arr2 = randomArray(d);
-                // lastThing[1][0] = 20000;
-                // lastThing[1][1] = selectSort(arr2);
-                // int e = 40000;
-                // int[] arr3 = randomArray(e);
-                // lastThing[2][0] = 40000;
-                // lastThing[2][1] = selectSort(arr3);
-                // int f = 80000;
-                // int[] arr4 = randomArray(f);
-                // lastThing[3][0] = 80000;
-                // lastThing[3][1] = selectSort(arr4);
-                // int g = 160000;
-                // int[] arr5 = randomArray(g);
-                // lastThing[4][0] = 160000;
-                // lastThing[4][1] = selectSort(arr5);
 
                 System.out.println("Enter the name of your file: ");
                 String name = sc.nextLine();
@@ -126,25 +107,6 @@ class SortingAlgorithm_GW_CH{
                         c = c*2;
                     }
                 }
-                // int[] arr1 = randomArray(c);
-                // lastThing[0][0] = 10000;
-                // lastThing[0][1] = insertSort(arr1);
-                // int d = 20000;
-                // int[] arr2 = randomArray(d);
-                // lastThing[1][0] = 20000;
-                // lastThing[1][1] = insertSort(arr2);
-                // int e = 40000;
-                // int[] arr3 = randomArray(e);
-                // lastThing[2][0] = 40000;
-                // lastThing[2][1] = insertSort(arr3);
-                // int f = 80000;
-                // int[] arr4 = randomArray(f);
-                // lastThing[3][0] = 80000;
-                // lastThing[3][1] = insertSort(arr4);
-                // int g = 160000;
-                // int[] arr5 = randomArray(g);
-                // lastThing[4][0] = 160000;
-                // lastThing[4][1] = insertSort(arr5);
 
                 System.out.println("Enter the name of your file: ");
                 String name = sc.nextLine();
@@ -165,25 +127,6 @@ class SortingAlgorithm_GW_CH{
                         c = c*2;
                     }
                 }
-                // int[] arr1 = randomArray(c);
-                // lastThing[0][0] = 10000;
-                // lastThing[0][1] = mergeSort(arr1);
-                // int d = 20000;
-                // int[] arr2 = randomArray(d);
-                // lastThing[1][0] = 20000;
-                // lastThing[1][1] = mergeSort(arr2);
-                // int e = 40000;
-                // int[] arr3 = randomArray(e);
-                // lastThing[2][0] = 40000;
-                // lastThing[2][1] = mergeSort(arr3);
-                // int f = 80000;
-                // int[] arr4 = randomArray(f);
-                // lastThing[3][0] = 80000;
-                // lastThing[3][1] = mergeSort(arr4);
-                // int g = 160000;
-                // int[] arr5 = randomArray(g);
-                // lastThing[4][0] = 160000;
-                // lastThing[4][1] = mergeSort(arr5);
 
                 System.out.println("Enter the name of your file: ");
                 String name = sc.nextLine();
@@ -202,25 +145,6 @@ class SortingAlgorithm_GW_CH{
                     lastThing[i][1] = quickSort(randomArray(c));
                     c = c*2;
                 }
-                // int[] arr1 = randomArray(c);
-                // lastThing[0][0] = 10000;
-                // lastThing[0][1] = quickSort(arr1);
-                // int d = 20000;
-                // int[] arr2 = randomArray(d);
-                // lastThing[1][0] = 20000;
-                // lastThing[1][1] = quickSort(arr2);
-                // int e = 40000;
-                // int[] arr3 = randomArray(e);
-                // lastThing[2][0] = 40000;
-                // lastThing[2][1] = quickSort(arr3);
-                // int f = 80000;
-                // int[] arr4 = randomArray(f);
-                // lastThing[3][0] = 80000;
-                // lastThing[3][1] = quickSort(arr4);
-                // int g = 160000;
-                // int[] arr5 = randomArray(g);
-                // lastThing[4][0] = 160000;
-                // lastThing[4][1] = quickSort(arr5);
 
                 System.out.println("Enter the name of your file: ");
                 String name = sc.nextLine();
