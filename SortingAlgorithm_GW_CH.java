@@ -5,6 +5,11 @@ import java.io.IOException;
 
 
 class SortingAlgorithm_GW_CH{
+    /**
+     * Creates an array of random integers
+     * @param num the length of the array
+     * @return the random array
+     */
     public static int[] randomArray(int num){
         Random rand = new Random();
         int[] arr = new int[num];
@@ -13,7 +18,12 @@ class SortingAlgorithm_GW_CH{
         }
         return arr;
     }
-
+    /**
+     * Runs the MasterMerge method from the MergeSort class and counts the amount of time
+     * needed to finish sorting
+     * @param arr the array to be sorted
+     * @return the time it took to finish(in milliseconds)
+     */
     public static int mergeSort(int[] arr){
         MergeSort sMergeSort = new MergeSort();
 
@@ -26,7 +36,12 @@ class SortingAlgorithm_GW_CH{
         System.out.println();
         return doneTime;
     }
-
+    /**
+     * Runs the MasterSelect method from the SelectionSort class and counts the amount of time
+     * needed to finish sorting
+     * @param arr the array to be sorted
+     * @return the time it took to finish(in milliseconds)
+     */
     public static int selectSort(int[] arr){
         SelectionSort sSelectionSort = new SelectionSort();
 
@@ -39,7 +54,12 @@ class SortingAlgorithm_GW_CH{
         System.out.println();
         return doneTime;
     }
-
+    /**
+     * Runs the masterInsert method from the InsertionSort class and counts the amount of time
+     * needed to finish sorting
+     * @param arr the array to be sorted
+     * @return the time it took to finish(in milliseconds)
+     */
     public static int insertSort(int[] arr){
         InsertionSort sInsertionSort = new InsertionSort();
 
@@ -52,7 +72,12 @@ class SortingAlgorithm_GW_CH{
         System.out.println();
         return doneTime;
     }
-
+    /**
+     * Runs the masterQuick method from the QuickSort class and counts the amount of time
+     * needed to finish sorting
+     * @param arr the array to be sorted
+     * @return the time it took to finish(in milliseconds)
+     */
     public static int quickSort(int[] arr){
         QuickSort sQuickSort = new QuickSort();
 
@@ -65,7 +90,29 @@ class SortingAlgorithm_GW_CH{
         System.out.println();
         return doneTime;
     }
+    /**
+     * Calls the runCode void method which will:
+     * - Ask the user which sorting algorithm they want to use
+     * - Ask the user for a size for their array
+     * - Get a random array from the randomArray method
+     * - Run the appropriate sorting algorithm on the random array
+     * - Print the amount of time taken to sort, as well as highest and lowest values
+     * - Use the putInCsv method to print pre-planned data results into a separate csv file named by the user
+     * @param args
+     */
     public static void main(String[] args){
+        runCode();
+    }
+    /**
+     * - Ask the user which sorting algorithm they want to use
+     * - Ask the user for a size for their array
+     * - Get a random array from the randomArray method
+     * - Run the appropriate sorting algorithm on the random array
+     * - Print the amount of time taken to sort, as well as highest and lowest values
+     * - Create a 2D array with pre-planned numbers of values in the first column, and their time to complete in the second
+     * - Use the putInCsv method to print the 2D array into a separate csv file named by the user
+     */
+    private static void runCode() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Welcome to the Sorting Machine");
@@ -156,6 +203,12 @@ class SortingAlgorithm_GW_CH{
 
         sc.close();
     }
+    /**
+     * Initializes a new file give name
+     * Loops through a 2D array given by the user and prints the values by row, separated by commas
+     * @param name the name for the file to be created
+     * @param data the 2D array of data to be written into the file
+     */
     public static void putInCsv(String name, int[][] data){
         try {
             // Initialize new file
