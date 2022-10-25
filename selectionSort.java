@@ -26,7 +26,7 @@ class SelectionSort
     {
         SelectionSort ob = new SelectionSort();
         ob.sort(arr);
-        System.out.println("List is " + arr.length + " long.");
+        System.out.println("You are sorting " + arr.length + " values.");
         System.out.println("The smallest value is " + arr[0]);
         System.out.println("The largest value is " + arr[arr.length-1]);
     }

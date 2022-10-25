@@ -118,7 +118,7 @@ class SortingAlgorithm_GW_CH{
         System.out.println("Welcome to the Sorting Machine");
         System.out.print("Enter the sorting algorithm would you like to use (selection, insertion, merge, quick): ");
         String s = sc.nextLine();
-        System.out.print("Enter array size: ");
+        System.out.print("Enter random array size(-1 for sizes 10000, 20000, 40000, 80000, and 160000): ");
         String lenString = sc.nextLine();
         int len = Integer.valueOf(lenString);
         int[][] lastThing = new int[5][2];

@@ -74,7 +74,7 @@ class MergeSort {
     {
         MergeSort ob = new MergeSort();
         ob.sort(arr, 0, arr.length - 1);
-        System.out.println("List is " + arr.length + " long.");
+        System.out.println("You are sorting " + arr.length + " values.");
         System.out.println("The smallest value is " + arr[0]);
         System.out.println("The largest value is " + arr[arr.length-1]);
     }
