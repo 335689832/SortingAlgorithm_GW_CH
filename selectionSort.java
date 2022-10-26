@@ -1,5 +1,11 @@
 class SelectionSort
 {
+    /**
+     * Uses a for loop to move through each element of arr
+     * At each element, it uses a for loop to check if there is a lower value in the array
+     * If a lower value is found, it switches the spots of the two values
+     * @param arr the array needing to be sorted
+     */
     void sort(int arr[])
     {
         int n = arr.length;
@@ -22,6 +28,10 @@ class SelectionSort
     }
 
     // Driver code to test above
+    /**
+     * Main method that runs the applicable code
+     * @param arr
+     */
     public static void MasterSelect(int arr[])
     {
         SelectionSort ob = new SelectionSort();

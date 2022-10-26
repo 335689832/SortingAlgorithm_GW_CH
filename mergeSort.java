@@ -2,6 +2,15 @@ class MergeSort {
     // Merges two subarrays of arr[].
     // First subarray is arr[l..m]
     // Second subarray is arr[m+1..r]
+    /**
+     * Find the size of both halves of the array
+     * Copy each half to a temporary array
+     * Merge the temporary arrays in ascending order
+     * @param arr an array to split into subarrays then merge
+     * @param l the left side of the array
+     * @param m the middle value of the array
+     * @param r the right side of the array
+     */
     void merge(int arr[], int l, int m, int r)
     {
         // Find sizes of two subarrays to be merged
@@ -54,6 +63,13 @@ class MergeSort {
 
     // Main function that sorts arr[l..r] using
     // merge()
+    /**
+     * Finds the middle point, then runs itself recursively until each element is by itelf,
+     * then merges them back together in ascending order
+     * @param arr an array to sort
+     * @param l the left side of the array
+     * @param r the right side of the array
+     */
     void sort(int arr[], int l, int r)
     {
         if (l < r) {
@@ -70,6 +86,10 @@ class MergeSort {
     }
 
     // Driver code
+    /**
+     * Main method that runs the applicable code
+     * @param arr
+     */
     public static void MasterMerge(int[] arr)
     {
         MergeSort ob = new MergeSort();
